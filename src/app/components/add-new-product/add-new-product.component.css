@@ -1,0 +1,44 @@
+mat-grid-tile
+{
+  border:1px solid #eeee
+}
+
+.btn-remove-image{
+  position:absolute;
+  cursor:pointer;
+  top:-2px;
+  right:-2px;
+  background-color:red;
+  color:white;
+  border-radius:50%;
+  width: 20px;
+  height:auto;
+  text-align: center;
+}
+
+.dropzone{
+  height:150px;
+  min-width:100px;
+  display:table;
+  background-color: rgb(212, 212, 212);
+  width: 300px;
+  border:dashed 1px #aaaa;
+  border-radius:15px;
+  margin:auto;
+  
+}
+
+
+.text-wrapper{
+  display: table-cell;
+  vertical-align:middle;
+}
+.centered{
+  text-align: center;
+}
+
+.browserButton
+{
+  color:rgb(68, 0, 255);
+  cursor:pointer;
+}
