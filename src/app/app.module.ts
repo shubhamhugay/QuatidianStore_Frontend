@@ -26,6 +26,10 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DragDirective } from './_directive/drag.directive';
+import { ShowProductDetailsComponent } from './components/show-product-details/show-product-details.component';
+import { MatTableModule } from '@angular/material/table';
+import { ShowProductImagesDialogComponent } from './components/show-product-images-dialog/show-product-images-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,8 @@ import { DragDirective } from './_directive/drag.directive';
     ForbiddenComponent,
     AddNewProductComponent,
     DragDirective,
+    ShowProductDetailsComponent,
+    ShowProductImagesDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -53,6 +59,8 @@ import { DragDirective } from './_directive/drag.directive';
     MatInputModule,
     MatIconModule,
     MatGridListModule,
+    MatTableModule,
+    MatDialogModule,
   ],
   providers: [
     AuthGuard,

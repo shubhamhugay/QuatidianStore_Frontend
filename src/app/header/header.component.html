@@ -28,6 +28,14 @@
   >
     Add New Product
   </button>
+
+  <button
+    *ngIf="isAdmin()"
+    mat-raised-button="primary"
+    routerLink="/showProductDetails"
+  >
+    Show All Product Details
+  </button>
 </mat-toolbar>
 
 <!-- 
