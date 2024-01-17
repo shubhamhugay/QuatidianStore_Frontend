@@ -30,6 +30,7 @@ import { ShowProductDetailsComponent } from './components/show-product-details/s
 import { MatTableModule } from '@angular/material/table';
 import { ShowProductImagesDialogComponent } from './components/show-product-images-dialog/show-product-images-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ProductViewDetailsComponent } from './components/product-view-details/product-view-details.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     DragDirective,
     ShowProductDetailsComponent,
     ShowProductImagesDialogComponent,
+    ProductViewDetailsComponent,
   ],
   imports: [
     CommonModule,

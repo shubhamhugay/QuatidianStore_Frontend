@@ -93,9 +93,7 @@ export class ShowProductDetailsComponent implements OnInit {
     'Product Description',
     'Product Discounted Price',
     'Product Actual Price',
-    'Images',
-    'Edit',
-    'Delete',
+    'Actions',
   ];
 
   ngOnInit(): void {
@@ -111,7 +109,7 @@ export class ShowProductDetailsComponent implements OnInit {
 
   public getAllProduct() {
     this.productService
-      .getAllProduct()
+      .getAllProducts()
       .pipe(
         map((x: Product[]) => {
           return x.map((product: Product) =>

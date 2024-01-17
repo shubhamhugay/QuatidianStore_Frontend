@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
+import { ProductViewDetailsComponent } from './components/product-view-details/product-view-details.component';
 import { ShowProductDetailsComponent } from './components/show-product-details/show-product-details.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
@@ -41,6 +42,14 @@ const routes: Routes = [
     component: ShowProductDetailsComponent,
     canActivate: [AuthGuard],
     data: { roles: ['Admin'] },
+    resolve: {
+      product: ProductResolveService,
+    },
+  },
+
+  {
+    path: 'productViewDetails',
+    component: ProductViewDetailsComponent,
     resolve: {
       product: ProductResolveService,
     },
