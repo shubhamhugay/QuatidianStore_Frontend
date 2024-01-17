@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { AuthGuard } from './_auth/auth.guard';
+import { ProductResolveService } from './_services/Resolver-product/product-resolve.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,9 +31,20 @@ const routes: Routes = [
     component: AddNewProductComponent,
     canActivate: [AuthGuard],
     data: { roles: ['Admin'] },
+    resolve: {
+      product: ProductResolveService,
+    },
   },
 
-  { path: 'showProductDetails', component: ShowProductDetailsComponent },
+  {
+    path: 'showProductDetails',
+    component: ShowProductDetailsComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['Admin'] },
+    resolve: {
+      product: ProductResolveService,
+    },
+  },
 ];
 
 @NgModule({
