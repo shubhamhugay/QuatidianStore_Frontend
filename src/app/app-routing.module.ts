@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { AuthGuard } from './_auth/auth.guard';
+import { BuyProductResolverService } from './_services/BuyProductResolver/buy-product-resolver.service';
 import { ProductResolveService } from './_services/Resolver-product/product-resolve.service';
 
 const routes: Routes = [
@@ -58,11 +59,17 @@ const routes: Routes = [
   {
     path: 'buyProduct',
     component: BuyProductComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
+    resolve: {
+      productDetails: BuyProductResolverService,
+    },
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

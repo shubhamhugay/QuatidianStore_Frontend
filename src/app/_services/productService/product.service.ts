@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from '../../_model/Product.model';
+import { OrderDetails } from './../../_model/order-details.models';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +31,22 @@ export class ProductService {
   public getProductDetailsById(productId: number) {
     return this.httpClient.get<Product>(
       'http://localhost:9090/getProductByDetailsId/' + productId
+    );
+  }
+
+  getProductDetails(isSingleProductCheckout: any, productId: number) {
+    return this.httpClient.get<Product[]>(
+      'http://localhost:9090/getProductDetails/' +
+        isSingleProductCheckout +
+        '/' +
+        productId
+    );
+  }
+
+  public placeOrder(orderDetails: OrderDetails) {
+    return this.httpClient.post(
+      'http://localhost:9090/placeOrder',
+      orderDetails
     );
   }
 }

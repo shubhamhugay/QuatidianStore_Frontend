@@ -1,1 +1,57 @@
-<p>buy-product works!</p>
+<div class="container mt-5">
+  <div class="card">
+    <div class="row">
+      <div class="col-6">
+        <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Full Name</mat-label>
+            <input
+              name="fullName"
+              matInput
+              placeholder="full Name"
+              required
+              [(ngModel)]="orderDetails.fullName"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Full Address</mat-label>
+            <input
+              name="fullAddress"
+              matInput
+              placeholder="full address"
+              required
+              [(ngModel)]="orderDetails.fullAddress"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Contact Number</mat-label>
+            <input
+              name="contactNumber"
+              matInput
+              placeholder="Contact Number"
+              required
+              [(ngModel)]="orderDetails.contactNumber"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Alternate Contact Number</mat-label>
+            <input
+              name="alternateContactNumber"
+              matInput
+              placeholder="Alternate Contact Number"
+              required
+              [(ngModel)]="orderDetails.alternateContactNumber"
+            />
+          </mat-form-field>
+          <div align="right">
+            <button type="submit" mat-stroked-button color="primary">
+              Place Order
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-6"></div>
+    </div>
+  </div>
+</div>
