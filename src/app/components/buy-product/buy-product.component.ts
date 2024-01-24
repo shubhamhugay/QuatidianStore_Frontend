@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { OrderDetails } from '../../_model/order-details.models';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from './../../_model/Product.model';
 import { ProductService } from './../../_services/productService/product.service';
 
@@ -22,7 +22,8 @@ export class BuyProductComponent implements OnInit {
   };
   constructor(
     private activatedRoute: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,10 +42,42 @@ export class BuyProductComponent implements OnInit {
       (resp) => {
         console.log(resp);
         orderForm.reset();
+        this.router.navigate(['/orderConfirm']);
       },
       (err) => {
         console.error(err);
       }
     );
+  }
+
+  getQuantityForProduct(productId: any) {
+    const filteredProduct = this.orderDetails.orderProductQuantityList.filter(
+      (product) => product.productId === productId
+    );
+    return filteredProduct[0].quantity;
+  }
+
+  getCalculatedTotal(productId: any, productDiscountedPrice: any) {
+    const filteredProduct = this.orderDetails.orderProductQuantityList.filter(
+      (product) => product.productId === productId
+    );
+    return filteredProduct[0].quantity * productDiscountedPrice;
+  }
+
+  onQuantityChanged(q: any, productId: any) {
+    this.orderDetails.orderProductQuantityList.filter(
+      (order) => order.productId === productId
+    )[0].quantity = q;
+  }
+
+  getCalculatedGrandTotal() {
+    let grandTotal = 0;
+    this.orderDetails.orderProductQuantityList.forEach((productQuantity) => {
+      const price = this.productDetails.filter(
+        (product) => product.productId === productQuantity.productId
+      )[0].productDiscountedPrice;
+      grandTotal = grandTotal + price * productQuantity.quantity;
+    });
+    return grandTotal;
   }
 }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import { BuyProductComponent } from './components/buy-product/buy-product.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { ProductViewDetailsComponent } from './components/product-view-details/product-view-details.component';
 import { ShowProductDetailsComponent } from './components/show-product-details/show-product-details.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
@@ -64,6 +65,12 @@ const routes: Routes = [
     resolve: {
       productDetails: BuyProductResolverService,
     },
+  },
+  {
+    path: 'orderConfirm',
+    component: OrderConfirmationComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
   },
 ];
 
