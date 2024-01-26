@@ -14,7 +14,14 @@ export class UserService {
     private userAuthService: UserAuthService
   ) {}
 
-  public login(loginData:any) {
+  public register(registerData: any) {
+    return this.httpclient.post(
+      this.PATH_OF_API + '/registerNewUser',
+      registerData
+    );
+  }
+
+  public login(loginData: any) {
     return this.httpclient.post(this.PATH_OF_API + '/authenticate', loginData, {
       headers: this.requestHeader,
     });
@@ -26,14 +33,13 @@ export class UserService {
     });
   }
 
-
   public forAdmin() {
     return this.httpclient.get(this.PATH_OF_API + '/forAdmin', {
       responseType: 'text',
     });
   }
 
-  public roleMatch(allowedRoles:any): boolean {
+  public roleMatch(allowedRoles: any): boolean {
     let isMatch = false;
     const userRoles: any = this.userAuthService.getRoles();
 
@@ -48,13 +54,7 @@ export class UserService {
           }
         }
       }
-    }return true;
+    }
+    return true;
   }
 }
-
-
-
-
-
-
-

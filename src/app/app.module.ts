@@ -33,6 +33,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProductViewDetailsComponent } from './components/product-view-details/product-view-details.component';
 import { BuyProductComponent } from './components/buy-product/buy-product.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
     ProductViewDetailsComponent,
     BuyProductComponent,
     OrderConfirmationComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,

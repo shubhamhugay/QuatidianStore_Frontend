@@ -17,9 +17,12 @@ export class ProductService {
     );
   }
 
-  public getAllProducts() {
+  public getAllProducts(pageNumber: number, searchKeyword: string = '') {
     return this.httpClient.get<Product[]>(
-      'http://localhost:9090/getAllProducts'
+      'http://localhost:9090/getAllProducts?pageNumber=' +
+        pageNumber +
+        '&searchKey=' +
+        searchKeyword
     );
   }
 

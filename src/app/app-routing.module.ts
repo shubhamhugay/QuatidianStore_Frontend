@@ -5,6 +5,7 @@ import { AddNewProductComponent } from './components/add-new-product/add-new-pro
 import { BuyProductComponent } from './components/buy-product/buy-product.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { ProductViewDetailsComponent } from './components/product-view-details/product-view-details.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ShowProductDetailsComponent } from './components/show-product-details/show-product-details.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
@@ -71,6 +72,10 @@ const routes: Routes = [
     component: OrderConfirmationComponent,
     canActivate: [AuthGuard],
     data: { roles: ['User'] },
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
 ];
 
