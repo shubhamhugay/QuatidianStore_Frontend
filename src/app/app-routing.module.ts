@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import { BuyProductComponent } from './components/buy-product/buy-product.component';
+import { CartComponent } from './components/cart/cart.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { ProductViewDetailsComponent } from './components/product-view-details/product-view-details.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -76,6 +78,19 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
+  },
+  {
+    path: 'myOrders',
+    component: MyOrdersComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
   },
 ];
 

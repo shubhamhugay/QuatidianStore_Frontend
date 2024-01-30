@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MyOrderDetails } from '../../_model/order.model';
 import { Product } from '../../_model/Product.model';
 import { OrderDetails } from './../../_model/order-details.models';
 
@@ -9,6 +10,12 @@ import { OrderDetails } from './../../_model/order-details.models';
 })
 export class ProductService {
   constructor(private httpClient: HttpClient) {}
+
+  public deleteCartItem(cartID: any) {
+    return this.httpClient.delete(
+      'http://localhost:9090/deleteCartItem/' + cartID
+    );
+  }
 
   public addProduct(product: FormData) {
     return this.httpClient.post<Product>(
@@ -46,10 +53,29 @@ export class ProductService {
     );
   }
 
-  public placeOrder(orderDetails: OrderDetails) {
+  public placeOrder(orderDetails: OrderDetails, isCartCheckout: any) {
     return this.httpClient.post(
-      'http://localhost:9090/placeOrder',
+      'http://localhost:9090/placeOrder/' + isCartCheckout,
       orderDetails
+    );
+  }
+
+  public addToCart(productId: any) {
+    return this.httpClient.get('http://localhost:9090/addToCart/' + productId);
+  }
+  public getCartDetails() {
+    return this.httpClient.get('http://localhost:9090/getCartDetails');
+  }
+
+  public getMyOrders(): Observable<MyOrderDetails[]> {
+    return this.httpClient.get<MyOrderDetails[]>(
+      'http://localhost:9090/getOrderDetails'
+    );
+  }
+
+  public markAsDelivered(orderId: any) {
+    return this.httpClient.get(
+      'http://localhost:9090/markOrderAsDelivered/' + orderId
     );
   }
 }

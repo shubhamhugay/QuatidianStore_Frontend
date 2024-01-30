@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { OrderDetails } from '../../_model/order-details.models';
 import { ActivatedRoute, Router } from '@angular/router';
+import { OrderDetails } from '../../_model/order-details.models';
+
 import { Product } from './../../_model/Product.model';
 import { ProductService } from './../../_services/productService/product.service';
 
@@ -12,6 +13,7 @@ import { ProductService } from './../../_services/productService/product.service
 })
 export class BuyProductComponent implements OnInit {
   productDetails: Product[] = [];
+  isSingleProductCheckout: string = '';
 
   orderDetails: OrderDetails = {
     fullName: '',
@@ -28,26 +30,33 @@ export class BuyProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productDetails = this.activatedRoute.snapshot.data['productDetails'];
+    this.isSingleProductCheckout =
+      this.activatedRoute.snapshot.paramMap.get('isSingleProductCheckout') ||
+      '';
+
     this.productDetails.forEach((x) =>
       this.orderDetails.orderProductQuantityList.push({
         productId: x.productId,
         quantity: 1,
       })
     );
+
     console.log(this.productDetails);
     console.log(this.orderDetails);
   }
   public placeOrder(orderForm: NgForm) {
-    this.productService.placeOrder(this.orderDetails).subscribe(
-      (resp) => {
-        console.log(resp);
-        orderForm.reset();
-        this.router.navigate(['/orderConfirm']);
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
+    this.productService
+      .placeOrder(this.orderDetails, this.isSingleProductCheckout)
+      .subscribe(
+        (resp) => {
+          console.log(resp);
+          orderForm.reset();
+          this.router.navigate(['/orderConfirm']);
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
   }
 
   getQuantityForProduct(productId: any) {

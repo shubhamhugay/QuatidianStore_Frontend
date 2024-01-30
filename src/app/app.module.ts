@@ -34,6 +34,8 @@ import { ProductViewDetailsComponent } from './components/product-view-details/p
 import { BuyProductComponent } from './components/buy-product/buy-product.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CartComponent } from './components/cart/cart.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { RegisterComponent } from './components/register/register.component';
     BuyProductComponent,
     OrderConfirmationComponent,
     RegisterComponent,
+    CartComponent,
+    MyOrdersComponent,
   ],
   imports: [
     CommonModule,
