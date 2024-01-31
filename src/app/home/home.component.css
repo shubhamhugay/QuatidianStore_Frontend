@@ -1,28 +1,141 @@
-mat-grid-tile{
-  border :1px solid lightgray;
-  margin:5px;
+mat-grid-tile {
+  border: 1px solid lightgray;
+  margin: 5px;
   border-radius: 10px;
-  
 }
 
-mat-grid-list{
-  margin:15px;
+mat-grid-list {
+  margin: 15px;
 }
 
-.image-container{
-  position:relative;
+.image-container {
+  position: relative;
   height: 300px;
 }
 
-.home-page-product-image{
-  max-width:90%;
-  max-height:90%;
- position:absolute;
- top:0%;
- bottom:0%;
- left:0%;
- right:0%;
- margin:auto;
-
+.home-page-product-image {
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  margin: auto;
 }
 
+/*----------------------*/
+
+footer {
+  background: linear-gradient(to right, #2f2f30, #020d16);
+  color: #ecf0f1;
+  padding: 40px 0;
+  text-align: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease-in-out;
+}
+
+.container5 {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 300px; /* Adjust the size according to your logo */
+  height: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  color: #ecf0f1;
+  font-size: 15px;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  border-radius: 50%;
+  background-color: rgba(236, 240, 241, 0.2);
+  padding: 10px;
+}
+
+.social-icon:hover {
+  color: #fff;
+  background-color: rgba(236, 240, 241, 0.4);
+}
+
+.copyright,
+.designed-by {
+  margin: 10px 0;
+  font-size: 14px;
+  transition: color 0.3s ease-in-out;
+}
+
+.heart {
+  color: #e74c3c;
+}
+
+.footer-content:hover .copyright,
+.footer-content:hover .designed-by {
+  color: #d3d5a7;
+}
+
+.footer-content:hover .logo-img {
+  opacity: 0.8;
+}
+/*-----------------*/
+
+.welcome-section {
+  background: linear-gradient(to right, #38444b, #01090e);
+  color: #ecf0f1;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.welcome-logo {
+  width: 500px; /* Adjust the size according to your logo */
+  height: auto;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+.welcome-section h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.welcome-section h2 {
+  font-size: 24px;
+}
+
+/* Add animation on hover for the logo */
+.welcome-logo:hover {
+  opacity: 0.8;
+}
+
+/* Add a subtle animation to the text */
+.welcome-section h1,
+.welcome-section h2 {
+  transition: color 0.3s ease-in-out;
+}
+
+/* Add a gradient color change on hover for the text */
+.welcome-section:hover h1,
+.welcome-section:hover h2 {
+  color: #d3d5a7;
+}

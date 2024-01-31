@@ -1,3 +1,70 @@
-.space-buttons{
-flex: 1 1 auto;
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d1c7b7;
+
+  color: #4e4d4a;
+
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid #7c7671;
 }
+
+.mat-toolbar span {
+  font-size: 1.8rem;
+  font-family: "Georgia", serif;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
+button {
+  margin: 0 10px 0 10px;
+
+  background-color: #d1c7b7;
+
+  color: #4e4d4a;
+
+  border: 2px solid #7c7671;
+
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #7c7671;
+
+  color: #d1c7b7;
+}
+
+@media screen and (max-width: 600px) {
+  .mat-toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mat-toolbar span {
+    margin-bottom: 10px;
+  }
+
+  .buttons-container {
+    margin-top: 10px;
+  }
+}
+
+.logo-container img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+/*----------------------------------------------------*/
+/*https://www.brandcrowd.com/maker/logo/real-estate-roof-builder-1431418?text=Quatidian&isVariation=True*/

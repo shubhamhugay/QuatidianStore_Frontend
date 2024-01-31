@@ -1,46 +1,49 @@
-<mat-toolbar>
-  <span>Quatidian Store </span>
-  <span class="space-buttons"></span>
-  <button
-    mat-stroked-button
-    color="accent"
-    *ngIf="!isLoggedIn()"
-    routerLink="/login"
-  >
-    Login
-  </button>
-  <button
-    mat-stroked-button
-    color="accent"
-    *ngIf="isLoggedIn()"
-    (click)="logout()"
-  >
-    Logout
-  </button></mat-toolbar
->
+<mat-toolbar class="navbar">
+  <div class="buttons-container left-buttons">
+    <button mat-raised-button *ngIf="!isLoggedIn()" routerLink="/login">
+      Login
+    </button>
+  </div>
 
-<mat-toolbar color="accent" *ngIf="isLoggedIn()">
-  <button mat-raised-button="primary" routerLink="/">Home</button>
-  &nbsp;
-  <button *ngIf="!isAdmin()" mat-raised-button="primary" routerLink="/cart">
-    Cart
-  </button>
-  <button *ngIf="!isAdmin()" mat-raised-button="primary" routerLink="/myOrders">
-    My Orders
-  </button>
-  <button
-    *ngIf="isAdmin()"
-    mat-raised-button="primary"
-    routerLink="/addNewProduct"
-  >
-    Add New Product
-  </button>
+  <div class="logo-container">
+    <img src="../../assets/header logo (1).png" alt="Logo" />
+    <span>Quatidian Store</span>
+  </div>
 
-  <button
-    *ngIf="isAdmin()"
-    mat-raised-button="primary"
-    routerLink="/showProductDetails"
-  >
-    Show All Product Details
-  </button>
+  <div class="buttons-container right-buttons">
+    <button mat-raised-button *ngIf="isLoggedIn()" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-toolbar class="navbar" color="accent" *ngIf="isLoggedIn()">
+  <div class="buttons-container">
+    <button mat-raised-button="primary" routerLink="/">Home</button>
+    &nbsp;
+    <button *ngIf="!isAdmin()" mat-raised-button="primary" routerLink="/cart">
+      Cart
+    </button>
+    <button
+      *ngIf="!isAdmin()"
+      mat-raised-button="primary"
+      routerLink="/myOrders"
+    >
+      My Orders
+    </button>
+    <button
+      *ngIf="isAdmin()"
+      mat-raised-button="primary"
+      routerLink="/addNewProduct"
+    >
+      Add New Product
+    </button>
+    <button
+      *ngIf="isAdmin()"
+      mat-raised-button="primary"
+      routerLink="/showProductDetails"
+    >
+      Show All Product Details
+    </button>
+  </div>
 </mat-toolbar>
