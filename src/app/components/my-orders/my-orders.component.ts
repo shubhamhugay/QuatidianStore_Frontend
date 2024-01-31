@@ -11,14 +11,16 @@ import { MyOrderDetails } from '../../_model/order.model';
 export class MyOrdersComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) {}
   displayedColumns = ['Name', 'Address', 'Contact NO.', 'Amount', 'Status'];
-  ngOnInit(): void {
-    this.getOrderDetails();
-  }
 
   myOrderDetails: MyOrderDetails[] = [];
+  status: string = 'All';
 
-  getOrderDetails() {
-    this.productService.getMyOrders().subscribe(
+  ngOnInit(): void {
+    this.getOrderDetails(this.status);
+  }
+
+  getOrderDetails(statusP: string) {
+    this.productService.getMyOrders(statusP).subscribe(
       (resp) => {
         console.log(resp), (this.myOrderDetails = resp);
       },
@@ -30,11 +32,13 @@ export class MyOrdersComponent implements OnInit {
     this.productService.markAsDelivered(data).subscribe(
       (data) => {
         console.log(data);
-        this.getOrderDetails();
+        this.getOrderDetails(status);
       },
       (error) => {
         console.log(error);
       }
     );
   }
+
+  getAllDetailsForAdmin() {}
 }

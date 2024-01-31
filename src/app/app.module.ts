@@ -36,6 +36,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 import { RegisterComponent } from './components/register/register.component';
 import { CartComponent } from './components/cart/cart.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
     MatGridListModule,
     MatTableModule,
     MatDialogModule,
+    MatButtonToggleModule,
   ],
   providers: [
     AuthGuard,

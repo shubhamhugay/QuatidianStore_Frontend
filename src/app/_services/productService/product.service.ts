@@ -67,15 +67,22 @@ export class ProductService {
     return this.httpClient.get('http://localhost:9090/getCartDetails');
   }
 
-  public getMyOrders(): Observable<MyOrderDetails[]> {
+  public getMyOrders(status: string): Observable<MyOrderDetails[]> {
     return this.httpClient.get<MyOrderDetails[]>(
-      'http://localhost:9090/getOrderDetails'
+      'http://localhost:9090/getOrderDetails/' + status
     );
   }
 
   public markAsDelivered(orderId: any) {
     return this.httpClient.get(
       'http://localhost:9090/markOrderAsDelivered/' + orderId
+    );
+  }
+
+  //transaction  api
+  public createTransaction(amount: any) {
+    return this.httpClient.get(
+      'http://localhost:9090/createTransaction/' + amount
     );
   }
 }
